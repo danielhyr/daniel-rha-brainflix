@@ -18,7 +18,7 @@ class App extends Component{
     data: data,
     selectedData: data[0],
     selectedId: data[0].id,
-    list: list.filter(video => video.id !== data[0].id)
+    list: list
   }
 
 clickHandler = (id) => {
@@ -27,18 +27,18 @@ const newSelection = this.state.data.find(entry => entry.id === id)
 this.setState({selectedData: newSelection, list: list.filter(video => video.id !== id)})
 
 // To remove the original three comments after reload
-  let removerVar = document.querySelectorAll(".commentsLoaded")
-  removerVar.forEach((event) => event.remove())
+  // let removerVar = document.querySelectorAll(".commentsLoaded")
+  // removerVar.forEach((event) => event.remove())
 }
 
 render () {
   return (
     <div className="App">
       <Header />
-      <Video  content = {this.state.selectedData}/>
+      <Video  content ={this.state.selectedData}/>
       <Commentform />
-      <Comments key = {this.state.selectedData.id} comments = {this.state.selectedData.comments}/>
-    <Videolist clickHandler = {this.clickHandler} key = {this.state.selectedData.id} list = {this.state.list}/>
+      <Comments  comments={this.state.selectedData.comments}/>
+    <Videolist clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list}/>
     </div>
   );
 
