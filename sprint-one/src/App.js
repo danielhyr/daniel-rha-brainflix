@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './components/Header/Header'
+import Video from './components/Video/Video'
+import Commentform from './components/Commentform/Commentform'
+import Comments from './components/Comments/Comments'
+import Videolist from './components/Videolist/Videolist'
 
-function App() {
+import data from "./data/video-details.json"
+import list from "./data/videos.json"
+
+import {Component} from 'react'
+
+
+
+class App extends Component{
+
+  state = {
+    data: data,
+    selectedData: data[0],
+    selectedId: data[0].id,
+    list: list.filter(video => video.id !== data[0].id)
+  }
+
+clickHandler = (id) => {
+console.log(id)
+const newSelection = this.state.data.find(entry => entry.id === id)
+this.setState({selectedData: newSelection, list: list.filter(video => video.id !== id)})
+
+// To remove the original three comments after reload
+  let removerVar = document.querySelectorAll(".commentsLoaded")
+  removerVar.forEach((event) => event.remove())
+}
+
+render () {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Video  content = {this.state.selectedData}/>
+      <Commentform />
+      <Comments key = {this.state.selectedData.id} comments = {this.state.selectedData.comments}/>
+    <Videolist clickHandler = {this.clickHandler} key = {this.state.selectedData.id} list = {this.state.list}/>
     </div>
   );
+
+}
+
 }
 
 export default App;
+{console.log(list)}
+{console.log(data)}
+
+
+
+

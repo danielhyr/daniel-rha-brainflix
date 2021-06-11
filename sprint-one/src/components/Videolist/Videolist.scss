@@ -1,0 +1,19 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.videoList {
+    display: flex;
+    flex-direction: column;
+    margin-left: $sixteen;
+    margin-right: $sixteen;
+
+    &__thumbnail {
+        min-width: 100px;
+        height: 55px;
+    }
+    &-inner {
+        display: flex;
+        margin-bottom: $sixteen;
+
+    }
+}

@@ -1,0 +1,47 @@
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    margin-left: $sixteen*5;
+    margin-right: $sixteen;
+    margin-bottom: $sixteen*1.5;
+    position: relative;
+    &__mohan {
+        @include avatarLarge;
+        max-height: 100px;
+        max-width: 100px;
+        position: absolute;
+        background-image: url("../../assets/Images/Mohan-muruge.jpg");
+        background-size: cover;
+        left: -$sixteen*4;
+        top: $sixteen*1.2;
+    }
+    &__input {
+        resize: none;
+        height: 96px;
+        border:1px solid $mercury;
+        border-radius: 5px;
+        background-color: $alabaster;
+        overflow: hidden;
+
+        margin-bottom: $sixteen;
+        &::placeholder {
+            color: $black;
+            position: relative;
+            top: $sixteen;
+            left: $sixteen;
+        }
+    }
+    &__label {
+        @include mobile-h5-labels;
+        color: $silver;
+    }
+
+    &__button {
+        height: $sixteen*3;
+
+    }
+}  

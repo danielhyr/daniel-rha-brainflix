@@ -1,0 +1,76 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+
+
+.commentsLoaded {
+    margin:0;
+    padding-left: $sixteen*4;
+    padding-top: $sixteen;
+    padding-bottom: $sixteen;
+    
+    margin-right: $sixteen;
+    margin-left: $sixteen;
+
+    border-top: 1px solid $mercury;
+
+    @include tablet {
+        margin:0 $sixteen*2;
+    }
+    @include desktop {
+        margin:0 $sixteen*8;
+    }
+
+    &-bottom{
+        @include font-properties(14px, 22px);
+            min-height: 32px;
+            margin-top: 0;
+            margin-left: 48px;
+            max-width: 100%;
+            word-wrap: break-word;
+    }
+
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        position: relative;   
+
+        &__circle {
+            @include avatarLarge;
+            background-color: $mercury;
+                position: absolute;
+                left: -$sixteen*4;
+                top: $sixteen/2;
+
+
+    }
+}
+        &--topBorder {
+            margin-top: 16px;
+            border-top: 1px solid $mercury;
+        }
+        &--bottomBorder {
+            border-top: 1px solid $mercury;
+            margin-bottom: 16px;
+        }
+
+        &--newBorder {
+            border-top: 1px solid $mercury;
+            border-bottom: none;
+        }
+
+    &-top{
+
+        &__name{
+            @include font-family-bold;
+            margin-left: 48px;
+
+        }
+        &__date {
+            color: $mercury;
+
+        }
+
+
+        }
+    }
