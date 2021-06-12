@@ -1,6 +1,7 @@
 import './App.scss';
 import Header from './components/Header/Header'
 import Video from './components/Video/Video'
+import VideoInfo from './components/VideoInfo/VideoInfo'
 import Commentform from './components/Commentform/Commentform'
 import Comments from './components/Comments/Comments'
 import Videolist from './components/Videolist/Videolist'
@@ -18,8 +19,10 @@ class App extends Component{
     data: data,
     selectedData: data[0],
     selectedId: data[0].id,
-    list: list
+    list: list.filter(video => video.id !== data[0].id)
   }
+
+
 
 clickHandler = (id) => {
 console.log(id)
@@ -27,18 +30,24 @@ const newSelection = this.state.data.find(entry => entry.id === id)
 this.setState({selectedData: newSelection, list: list.filter(video => video.id !== id)})
 
 // To remove the original three comments after reload
-  // let removerVar = document.querySelectorAll(".commentsLoaded")
-  // removerVar.forEach((event) => event.remove())
+
 }
 
 render () {
+
   return (
+    
     <div className="App">
       <Header />
       <Video  content ={this.state.selectedData}/>
+      <div class="halfPage">
+        <div class="halfPage-left">
+      <VideoInfo content ={this.state.selectedData}/>
       <Commentform />
       <Comments  comments={this.state.selectedData.comments}/>
-    <Videolist clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list}/>
+      </div>
+    <Videolist querySelector = {this.ellipsisMake}clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list}/>
+    </div>
     </div>
   );
 
@@ -49,6 +58,8 @@ render () {
 export default App;
 {console.log(list)}
 {console.log(data)}
+
+
 
 
 

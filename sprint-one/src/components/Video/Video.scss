@@ -4,59 +4,25 @@
 .video {
     &-thumbWrapper {
         display: flex;
-        height: 300px;
+        height: 250px;
+        background-color: black;
+        @include tablet {
+            height: 400px;
+
+        }
     }
     &__img {
         min-width: 100%;
-        max-height: 100%;
+        min-height: 100%;
         object-fit: cover;
+        @include tablet {
+            padding-left: $sixteen*2;
+            padding-right: $sixteen*2;
+        }
     }
 
     &__description {
         padding-top: $sixteen;
-
-    }
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    margin-left: $sixteen;
-    margin-right: $sixteen;
-
-    &__title {
-        align-self: flex-start;
-    }
-
-    &-divider{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        border-bottom: 1px solid $mercury;
-        padding-top: $sixteen;
-
-        padding-bottom: $sixteen;
-        @include tablet {
-            justify-content: space-between;
-            flex-direction: row;
-
-        }
-
-    }
-
-    &__user {
-        display: flex;
-        margin-right: $sixteen;
-    }
-
-    &__social {
-        display: flex;
-
-    }
-    
-    &__commentsnum {
-        margin-top: $sixteen;
-        margin-bottom: $sixteen;
 
     }
 }

@@ -9,6 +9,17 @@
     margin-right: $sixteen;
     margin-bottom: $sixteen*1.5;
     position: relative;
+    @include tablet {
+        margin-left: $sixteen*6;
+        margin-right: $sixteen*2;
+        margin-bottom: $sixteen*1.5;
+    }
+    @include desktop {
+        margin-left: $sixteen*12;
+        flex-direction: row;
+        height: $sixteen*2.5;
+    }
+    
     &__mohan {
         @include avatarLarge;
         max-height: 100px;
@@ -17,7 +28,11 @@
         background-image: url("../../assets/Images/Mohan-muruge.jpg");
         background-size: cover;
         left: -$sixteen*4;
-        top: $sixteen*1.2;
+        top: $sixteen*1;
+        @include desktop {
+            top: $sixteen*0.2;
+
+        }
     }
     &__input {
         resize: none;
@@ -26,7 +41,11 @@
         border-radius: 5px;
         background-color: $alabaster;
         overflow: hidden;
-
+        @include desktop {
+            height: 100%;
+            width: 100%;
+            margin-bottom: 0;
+        }
         margin-bottom: $sixteen;
         &::placeholder {
             color: $black;
@@ -38,10 +57,17 @@
     &__label {
         @include mobile-h5-labels;
         color: $silver;
+        font-weight: 600;
+        @include desktop {
+            position: absolute;
+        }
     }
 
     &__button {
         height: $sixteen*3;
-
+        @include desktop {           
+            height: 100%;
+            margin-bottom: 0;
+        }
     }
 }  
