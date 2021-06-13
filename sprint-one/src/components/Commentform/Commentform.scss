@@ -13,7 +13,7 @@
         flex-direction: row;
 
         justify-content: space-between;
-        margin-left: $sixteen*5;
+        margin-left: $sixteen*5.5;
         margin-right: $sixteen*4;
         margin-bottom: $sixteen*1.5;
         height: $sixteen*3;
@@ -40,7 +40,7 @@
     &__input {
         resize: none;
         height: 96px;
-        border:1px solid $silver;
+        border:2px solid $mercury;
         border-radius: 5px;
         background-color: $alabaster;
         overflow: hidden;
@@ -54,8 +54,13 @@
         &::placeholder {
             color: $black;
             position: relative;
-            top: $sixteen;
-            left: $sixteen;
+            top: $sixteen*0.75;
+            left: $sixteen*0.8;
+            @include tablet {
+                top: $sixteen*0.9;
+
+        }
+
         }
         &:focus {
             outline: none;
@@ -64,7 +69,7 @@
     }
     &__label {
         @include mobile-h5-labels;
-        color: $silver;
+        color: $mercury;
         font-weight: 600;
         @include tablet {
             position: absolute;

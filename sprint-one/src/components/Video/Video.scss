@@ -17,7 +17,7 @@
     }
     &__img {
         min-width: 100%;
-        min-height: 100%;
+        height: auto;
         object-fit: cover;
         @include tablet {
             padding-left: $sixteen*2;

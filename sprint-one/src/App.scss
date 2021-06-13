@@ -18,13 +18,14 @@ button {
     }
 }
 
+
 .halfPage {
     @include desktop{
     display: flex;
 }
     &-left {
         @include desktop{
-        width: 55%;
+        width: 60%;
         }
     }
 

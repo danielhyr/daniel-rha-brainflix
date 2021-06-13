@@ -35,7 +35,6 @@ this.setState({selectedData: newSelection, list: list.filter(video => video.id !
 
 defaultPrevent = (event) => {
   event.preventDefault()
-  console.log(event)
 }
 
 render () {
@@ -45,8 +44,8 @@ render () {
     <div className="App">
       <Header defaultPrevent = {this.defaultPrevent}/>
       <Video  content ={this.state.selectedData}/>
-      <div class="halfPage">
-        <div class="halfPage-left">
+      <div className="halfPage">
+        <div className="halfPage-left">
       <VideoInfo content ={this.state.selectedData}/>
       <Commentform defaultPrevent = {this.defaultPrevent}/>
       <Comments  comments={this.state.selectedData.comments}/>
@@ -61,8 +60,7 @@ render () {
 }
 
 export default App;
-{console.log(list)}
-{console.log(data)}
+
 
 
 
