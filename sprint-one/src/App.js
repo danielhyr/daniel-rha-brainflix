@@ -33,17 +33,22 @@ this.setState({selectedData: newSelection, list: list.filter(video => video.id !
 
 }
 
+defaultPrevent = (event) => {
+  event.preventDefault()
+  console.log(event)
+}
+
 render () {
 
   return (
     
     <div className="App">
-      <Header />
+      <Header defaultPrevent = {this.defaultPrevent}/>
       <Video  content ={this.state.selectedData}/>
       <div class="halfPage">
         <div class="halfPage-left">
       <VideoInfo content ={this.state.selectedData}/>
-      <Commentform />
+      <Commentform defaultPrevent = {this.defaultPrevent}/>
       <Comments  comments={this.state.selectedData.comments}/>
       </div>
     <Videolist querySelector = {this.ellipsisMake}clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list}/>

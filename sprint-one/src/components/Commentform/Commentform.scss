@@ -57,6 +57,10 @@
             top: $sixteen;
             left: $sixteen;
         }
+        &:focus {
+            outline: none;
+            border: 2px solid $brainflix-blue;
+           }
     }
     &__label {
         @include mobile-h5-labels;

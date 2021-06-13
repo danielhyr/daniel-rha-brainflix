@@ -65,6 +65,11 @@
 
       }
 
+      &:focus {
+       outline: none;
+       border: 2px solid $brainflix-blue;
+      }
+
     } 
 
     &__searchImg {

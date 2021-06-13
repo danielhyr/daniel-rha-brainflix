@@ -1,9 +1,9 @@
 import './Commentform.scss'
 
 
-function Commentform () {
+function Commentform (props) {
     return (
-        <form className="comments">
+        <form className="comments" onSubmit= {props.defaultPrevent}>
             
             {/* <img className = "comments__mohan" src = {Mohan} alt="circle mohan"></img> */}
             <div className = "comments__mohan"></div>
