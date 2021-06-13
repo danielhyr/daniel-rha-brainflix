@@ -13,7 +13,7 @@
     margin-right: $sixteen;
     margin-left: $sixteen;
 
-    border-top: 1px solid $silver;
+    border-top:1px solid $mercury;
 
     @include tablet {
         @include large-paragraphs-comments;
@@ -62,14 +62,14 @@
     
     &-top{
 
-        &__name{
+        &__account{
             @include font-family-bold;
-            margin-left: 48px;
 
         }
+        
         &__date {
             color: $mercury;
-
+            margin-left: $sixteen*0.5;
         }
 
 

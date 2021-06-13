@@ -1,6 +1,5 @@
 import './Header.scss'
 import Logo from "../../assets/Logo/Logo-brainflix.svg"
-import Mohan from "../../assets/Images/Mohan-muruge.jpg"
 import Search from "../../assets/Icons/Icon-search.svg"
 import Upload from "../../assets/Icons/Icon-upload.svg"
 
