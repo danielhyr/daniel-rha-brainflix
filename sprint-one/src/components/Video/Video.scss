@@ -10,6 +10,10 @@
             height: 400px;
 
         }
+        @include desktop {
+            height: 500px;
+
+        }
     }
     &__img {
         min-width: 100%;
@@ -19,10 +23,11 @@
             padding-left: $sixteen*2;
             padding-right: $sixteen*2;
         }
+        @include desktop {
+            padding-left: $sixteen*15;
+            padding-right: $sixteen*15;
+        }
     }
 
-    &__description {
-        padding-top: $sixteen;
 
-    }
 }

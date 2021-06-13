@@ -24,10 +24,20 @@
         padding-bottom: $sixteen*2;
     }
     &__thumbnail {
-        min-width: 160px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+
+    &-wrapper {
+        width: 120px;
         height: 80px;
         border-radius: 4px;
+        display: flex;
+        
     }
+
     &-inner {
         display: flex;
         margin-bottom: $sixteen;
@@ -37,6 +47,8 @@
         &-block {
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
+            margin-left: $sixteen;
 
             &__title {
                 display: -webkit-box;

@@ -10,14 +10,17 @@
     margin-bottom: $sixteen*1.5;
     position: relative;
     @include tablet {
-        margin-left: $sixteen*6;
-        margin-right: $sixteen*2;
+        flex-direction: row;
+
+        justify-content: space-between;
+        margin-left: $sixteen*5;
+        margin-right: $sixteen*4;
         margin-bottom: $sixteen*1.5;
+        height: $sixteen*3;
+
     }
     @include desktop {
-        margin-left: $sixteen*12;
-        flex-direction: row;
-        height: $sixteen*2.5;
+        margin-left: $sixteen*14;
     }
     
     &__mohan {
@@ -29,22 +32,23 @@
         background-size: cover;
         left: -$sixteen*4;
         top: $sixteen*1;
-        @include desktop {
-            top: $sixteen*0.2;
+        @include tablet {
+            top: -$sixteen*0.2;
 
         }
     }
     &__input {
         resize: none;
         height: 96px;
-        border:1px solid $mercury;
+        border:1px solid $silver;
         border-radius: 5px;
         background-color: $alabaster;
         overflow: hidden;
-        @include desktop {
+        @include tablet {
             height: 100%;
-            width: 100%;
+            width: 80%;
             margin-bottom: 0;
+            margin-right: $sixteen;
         }
         margin-bottom: $sixteen;
         &::placeholder {
@@ -58,16 +62,24 @@
         @include mobile-h5-labels;
         color: $silver;
         font-weight: 600;
-        @include desktop {
+        @include tablet {
             position: absolute;
+            bottom: $sixteen*3;
         }
     }
 
     &__button {
         height: $sixteen*3;
-        @include desktop {           
+        @include tablet {           
             height: 100%;
+            width: 20%;
             margin-bottom: 0;
+            padding-top: 4px;
+            padding-left: $sixteen*4;
+            padding-right: $sixteen*4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }  

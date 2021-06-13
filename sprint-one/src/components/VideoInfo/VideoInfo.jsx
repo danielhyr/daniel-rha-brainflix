@@ -13,7 +13,7 @@ function VideoInfo (props) {
     return (
 <div className="info">
                     <h1 className="info__title">{props.content.title}</h1>
-                    <div className="info-divider">
+                <div className="info-divider">
                     <div className="info-user">
                         <p className="info-user__data">By {props.content.channel}</p>
                         <p className="info-user__dataTwo">{dateGet(new Date(Number(props.content.timestamp)))}</p></div>
@@ -27,7 +27,7 @@ function VideoInfo (props) {
                             </img>{props.content.likes}</p>
                         </div>
                     </div>
-                <p className="video__description">{props.content.description}
+                <p className="info__description">{props.content.description}
                 </p>
             <h4 className="info__commentsnum">3 Comments</h4>
         </div> 

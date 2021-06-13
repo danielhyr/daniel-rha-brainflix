@@ -18,6 +18,10 @@
       padding-left: $sixteen*1.5;
       padding-right: $sixteen*1.5;
     }
+    @include desktop {
+      padding-left: $sixteen*10;
+      padding-right: $sixteen*10;
+    }
 
     &__form {
         display: flex;

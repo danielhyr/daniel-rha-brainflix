@@ -33,7 +33,12 @@
 
 // mixins for avatars
 
-
+@mixin avatarMobile {
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    @content;
+}
 
 @mixin avatarLarge {
     border-radius: 50%;
