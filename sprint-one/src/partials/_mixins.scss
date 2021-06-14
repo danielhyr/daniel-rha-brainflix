@@ -42,8 +42,8 @@
 
 @mixin avatarLarge {
     border-radius: 50%;
-    height: 48px;
-    width: 48px;
+    min-height: 48px;
+    min-width: 48px;
 }
 
 // mixins for media queries

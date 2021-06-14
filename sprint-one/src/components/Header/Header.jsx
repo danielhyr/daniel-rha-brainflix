@@ -8,12 +8,14 @@ function Header (props) {
         <header className="header">
             <img className="header__logo" src = {Logo} alt ="brainflix logo"></img>
             <form className="header__form" onSubmit= {props.defaultPrevent}>
-                <div className="header__searchWrapper">
-                <input className="header__search" type ="search"  placeholder = "Search"></input>
-                <img className="header__searchImg" src = {Search} alt ="brainflix seaerch icon"></img>
+                    <div className="header__searchWrapper">
+                    <input className="header__search" type ="search"  placeholder = "Search"></input>
+                    <img className="header__searchImg" src = {Search} alt ="brainflix seaerch icon"></img>
+                    </div>
+                    <div className="header__form-bottom">
+                    <button className="header__button"type = "sutmit" ><img className="header__uploadImg" src = {Upload} alt ="brainflix seaerch icon"></img>UPLOAD</button>
+                    <div className="header__mohan"></div>
                 </div>
-                <button className="header__button"type = "sutmit" ><img className="header__uploadImg" src = {Upload} alt ="brainflix seaerch icon"></img>UPLOAD</button>
-                <div className="header__mohan"></div> 
             </form>
           </header>
     )

@@ -29,7 +29,7 @@
     }
 
     &-bottom{
-        @include font-properties(14px, 22px);
+        @include large-paragraphs-comments;
             min-height: 32px;
             margin-top: 0;
             margin-left: 48px;
@@ -55,8 +55,6 @@
                 position: absolute;
                 left: -$sixteen*3.5;
                 top: 0;
-
-
     }
 }
     
@@ -71,7 +69,6 @@
             color: $mercury;
             margin-left: $sixteen;
         }
-
 
         }
     }

@@ -5,26 +5,33 @@
     @include mobile-lists-contacts;
     display: flex;
     flex-direction: column;
-    padding-left: $sixteen;
-    padding-right: $sixteen;
+    margin-left: $sixteen;
+    margin-right: $sixteen;
     border-top: 1px solid $mercury;
 
     padding-top: $sixteen*2;
     @include tablet {
-        padding-left: $sixteen*2;
-        padding-right: $sixteen*2;
+        margin-left: $sixteen*1.5;
+        margin-right: $sixteen*1.5;
+
     }
     @include desktop {
         border-left: 1px solid $mercury;
+        margin: 0;
+        padding-left: $sixteen*1.5;
+        padding-right: $sixteen*1.5;
 
     }
     &__header {
-        @include mobile-lists-contacts;
+        @include mobile-h5-labels;
         color: $mercury;
         padding-bottom: $sixteen*2;
+        @include tablet {
+            @include large-h5-labels;
+        }
     }
-    &__thumbnail {
 
+    &__thumbnail {
         min-width: 160px;
         min-height: 100px;
         object-fit: cover;
@@ -38,7 +45,6 @@
             position: relative;
             bottom: 40px;
             right: 45px;
-
         }
         &--rotate {
 
@@ -66,8 +72,8 @@
     &-inner {
         display: flex;
         margin-bottom: $sixteen;
-        @include desktop {
-            margin-bottom: $sixteen*2;
+        @include tablet {
+            margin-bottom: $sixteen*1.5;
         }
         &-block {
             display: flex;

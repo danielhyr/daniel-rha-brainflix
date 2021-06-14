@@ -30,18 +30,35 @@
         justify-content: space-between; 
          @include tablet {
           width: 60%;
-
-          flex-direction: row;
           flex-wrap: nowrap;
-          justify-content: space-between; 
+          justify-content: flex-end;
 
         }
+        @include desktop {
+          width: 40%;
+          flex-wrap: nowrap;
+          justify-content: flex-end;
+
+        }
+
+      &-bottom {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        @include tablet {
+          width: 80%;
+
+          justify-content: flex-end;
+
+        }
+      }
     }
     &__searchWrapper {
       width: 100%;
       position: relative;
       @include tablet {
-        width: 56%;
+        width: 100%;
 
       }
     }
@@ -62,6 +79,8 @@
 
       &::placeholder {
         color: $black;
+        position: relative;
+        top: 1px;
 
       }
 
@@ -92,21 +111,26 @@
     }
 
     &__button {
-      width: 77%;
+      width: 100%;
       min-height: $sixteen*3;
       background-repeat: no-repeat;
       background-position: 25% 50%;
       @include tablet {
-        width: 23%;
+        margin-left: $sixteen;
+        width: 60%;
+        flex-grow: 2;
 
       }
     }
 
 &__mohan{
   @include avatarLarge;
+      margin-left: $sixteen;
       background-image: url("../../assets/Images/Mohan-muruge.jpg");
       background-size: cover;
       @include tablet {
+        margin-left: $sixteen;
+
       }
   }
 }

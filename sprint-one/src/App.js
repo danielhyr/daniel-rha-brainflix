@@ -9,54 +9,49 @@ import Videolist from './components/Videolist/Videolist'
 import data from "./data/video-details.json"
 import list from "./data/videos.json"
 
-import {Component} from 'react'
+import { Component } from 'react'
 
 
 
-class App extends Component{
+class App extends Component {
 
   state = {
+    list: list.filter(video => video.id !== data[0].id),
     data: data,
     selectedData: data[0],
     selectedId: data[0].id,
-    list: list.filter(video => video.id !== data[0].id)
   }
 
 
 
-clickHandler = (id) => {
-console.log(id)
-const newSelection = this.state.data.find(entry => entry.id === id)
-this.setState({selectedData: newSelection, list: list.filter(video => video.id !== id)})
+  clickHandler = (id) => {
+    const newSelection = this.state.data.find(entry => entry.id === id)
+    this.setState({ selectedData: newSelection, list: list.filter(video => video.id !== id) })
 
-// To remove the original three comments after reload
+  }
 
-}
+  defaultPrevent = (event) => {
+    event.preventDefault()
+  }
 
-defaultPrevent = (event) => {
-  event.preventDefault()
-}
+  render() {
 
-render () {
+    return (
 
-  return (
-    
-    <div className="App">
-      <Header defaultPrevent = {this.defaultPrevent}/>
-      <Video  content ={this.state.selectedData}/>
-      <div className="halfPage">
-        <div className="halfPage-left">
-      <VideoInfo content ={this.state.selectedData}/>
-      <Commentform defaultPrevent = {this.defaultPrevent}/>
-      <Comments  comments={this.state.selectedData.comments}/>
+      <div className="App">
+        <Header defaultPrevent={this.defaultPrevent} />
+        <Video content={this.state.selectedData} />
+        <div className="halfPage">
+          <div className="halfPage-left">
+            <VideoInfo content={this.state.selectedData} />
+            <Commentform defaultPrevent={this.defaultPrevent} />
+            <Comments comments={this.state.selectedData.comments} />
+          </div>
+          <Videolist querySelector={this.ellipsisMake} clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list} />
+        </div>
       </div>
-    <Videolist querySelector = {this.ellipsisMake}clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list}/>
-    </div>
-    </div>
-  );
-
-}
-
+    );
+  }
 }
 
 export default App;
