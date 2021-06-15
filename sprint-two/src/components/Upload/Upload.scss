@@ -1,0 +1,95 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    padding:0 $sixteen $sixteen ;
+
+    &__header{
+        padding: 2rem 0;
+        border-top: 1px solid $mercury;
+    }
+}
+
+.innerLoad {
+    &-left { 
+        &-imgWrapper{
+        overflow: hidden;
+        max-height: auto;
+        max-width: 100%;
+        border-radius: 4px
+    }
+    &__description{
+        @include mobile-h5-labels;
+        color: $silver;
+
+    }
+      &__img{
+          object-fit: cover;
+          max-width: 100%;
+          max-height: 100%;
+          border-radius: 4px
+
+      }
+}
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+    &__label {
+        @include mobile-h5-labels;
+        color: $silver;
+        padding-top: 1rem;
+    }
+
+    &__input {
+        background-color: $alabaster;
+        border-radius: 4px;
+        border: 1px solid $mercury;
+        height: $sixteen*2.5;
+        padding-left: $sixteen;
+    }
+
+    &__textArea {
+        background-color: $alabaster;
+        border-radius: 4px;
+        border: 1px solid $mercury;
+        resize: none;
+        height: $sixteen*8;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        @include tablet {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    padding-top: $sixteen*2;
+    @include tablet {
+        flex-direction: row;
+        justify-content: flex-end;
+        border-top: 2px solid $mercury;
+    }
+    &__publish {
+        padding: $sixteen 0;
+        @include tablet {
+            min-width: $sixteen*10;
+        }
+    }
+    &__cancel {
+        background-color: $white;
+        color: $brainflix-blue;
+        padding: $sixteen 0;
+        @include tablet {
+            min-width: $sixteen*10;
+
+        }
+    }
+}

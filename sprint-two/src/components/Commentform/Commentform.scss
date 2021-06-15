@@ -1,0 +1,92 @@
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    margin-left: $sixteen*5;
+    margin-right: $sixteen;
+    margin-bottom: $sixteen*1.5;
+    position: relative;
+    @include tablet {
+        flex-direction: row;
+
+        justify-content: space-between;
+        margin-left: $sixteen*5.5;
+        margin-right: $sixteen*4;
+        margin-bottom: $sixteen*1.5;
+        height: $sixteen*3;
+
+    }
+    @include desktop {
+        margin-left: $sixteen*14;
+    }
+    
+    &__mohan {
+        @include avatarLarge;
+        max-height: 100px;
+        max-width: 100px;
+        position: absolute;
+        background-image: url("../../assets/Images/Mohan-muruge.jpg");
+        background-size: cover;
+        left: -$sixteen*4;
+        top: $sixteen*1;
+        @include tablet {
+            top: -$sixteen*0.2;
+
+        }
+    }
+    &__input {
+        resize: none;
+        height: 96px;
+        border:2px solid $mercury;
+        border-radius: 5px;
+        background-color: $alabaster;
+        overflow: hidden;
+        padding-top: $sixteen*0.75;
+        padding-left: $sixteen*0.8;
+        @include tablet {
+            height: 100%;
+            width: 80%;
+            margin-bottom: 0;
+            margin-right: $sixteen;
+        }
+        margin-bottom: $sixteen;
+        &::placeholder {
+            color: $black;
+            position: relative;
+            top: 2px;
+
+
+        }
+        &:focus {
+            outline: none;
+            border: 2px solid $brainflix-blue;
+           }
+    }
+    &__label {
+        @include mobile-h5-labels;
+        color: $mercury;
+        font-weight: 600;
+        @include tablet {
+            position: absolute;
+            bottom: $sixteen*3;
+        }
+    }
+
+    &__button {
+        height: $sixteen*3;
+        @include tablet {           
+            height: 100%;
+            width: 20%;
+            margin-bottom: 0;
+            padding-top: 4px;
+            padding-left: $sixteen*4;
+            padding-right: $sixteen*4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}  

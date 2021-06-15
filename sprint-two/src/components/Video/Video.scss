@@ -1,0 +1,33 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.video {
+    &-thumbWrapper {
+        display: flex;
+        height: 250px;
+        background-color: black;
+        @include tablet {
+            height: 400px;
+
+        }
+        @include desktop {
+            height: 500px;
+
+        }
+    }
+    &__img {
+        min-width: 100%;
+        height: auto;
+        object-fit: cover;
+        @include tablet {
+            padding-left: $sixteen*2;
+            padding-right: $sixteen*2;
+        }
+        @include desktop {
+            padding-left: $sixteen*15;
+            padding-right: $sixteen*15;
+        }
+    }
+
+
+}
