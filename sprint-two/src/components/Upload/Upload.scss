@@ -6,20 +6,56 @@
     display: flex;
     flex-direction: column;
     padding:0 $sixteen $sixteen ;
-
+    border-top: 1px solid $mercury; 
+    @include desktop {
+        padding:0 10rem 10rem;
+    }
     &__header{
         padding: 2rem 0;
-        border-top: 1px solid $mercury;
+        @include tablet {
+            padding: 2rem 0;
+
+            border-bottom: 2px solid $mercury;
+        }
     }
 }
 
 .innerLoad {
+    @include tablet {
+        padding: 2rem 0;
+    }
+    @include desktop {
+        display: flex;
+    }
+    
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    @include desktop {
+        flex-grow: 3;
+        position: relative;
+        bottom: 1rem;
+    }
     &-left { 
+        @include tablet {
+
+            max-width: 50%;
+        }
+        @include desktop {
+            max-width: 36%;
+        }
         &-imgWrapper{
         overflow: hidden;
         max-height: auto;
         max-width: 100%;
-        border-radius: 4px
+        border-radius: 4px;
+        @include desktop {
+            min-height: 12.7rem
+        }
+
+
     }
     &__description{
         @include mobile-h5-labels;
@@ -30,15 +66,32 @@
           object-fit: cover;
           max-width: 100%;
           max-height: 100%;
-          border-radius: 4px
+          border-radius: 4px;
+            @include desktop {
+                height: 12.7rem;
 
+            }
       }
 }
-}
 
-.form {
-    display: flex;
-    flex-direction: column;
+    &-one {
+        display: flex;
+        flex-direction: column;
+        @include desktop {
+            flex-direction: row;
+        }
+    }
+
+    &-right {
+        display: flex;
+        flex-direction: column;
+        @include desktop {
+            min-width: 70%;
+            position: relative;
+            bottom: 1rem ;
+            padding-left: 1rem;
+        }
+    }
 
     &__label {
         @include mobile-h5-labels;
@@ -52,6 +105,8 @@
         border: 1px solid $mercury;
         height: $sixteen*2.5;
         padding-left: $sixteen;
+        @include desktop {
+        }
     }
 
     &__textArea {

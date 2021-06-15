@@ -15,7 +15,7 @@ function Header(props) {
                     <img className="header__searchImg" src={Search} alt="brainflix seaerch icon"></img>
                 </div>
                 <div className="header__form-bottom">
-                    <button className="header__button" type="sutmit" >
+                    <button className="header__button" type="submit" >
                         <img className="header__uploadImg" src={Upload} alt="brainflix seaerch icon">
                         </img><Link to="/upload">UPLOAD</Link></button>
                     <div className="header__mohan"></div>

@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import Header from './components/Header/Header'
 import Video from './components/Video/Video'
 import VideoInfo from './components/VideoInfo/VideoInfo'
@@ -8,14 +8,17 @@ import Comments from './components/Comments/Comments'
 import Videolist from './components/Videolist/Videolist'
 import MainPage from './components/MainPage/MainPage'
 import Upload from './components/Upload/Upload';
-
+import Error from './components/Error'
 
 import { Component } from 'react'
 
 
 
 class App extends Component {
-
+  
+  defaultPrevent = (event) => {
+    event.preventDefault()
+  }
   render() {
 
     return (
