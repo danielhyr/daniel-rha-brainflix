@@ -1,6 +1,9 @@
 @use "../../partials/mixins" as *;
 @use "../../partials/variables" as *;
 
+a {
+    display: inline-block;
+}
 .videoList {
     @include mobile-lists-contacts;
     display: flex;

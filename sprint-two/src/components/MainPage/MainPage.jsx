@@ -16,19 +16,20 @@ import { Component } from 'react'
 class Mainpage extends Component {
 
     state = {
-      list: list.filter(video => video.id !== data[0].id),
+      list: list,
       data: data,
       selectedData: data[0],
       selectedId: data[0].id,
     }
-  
-  
-  
-    clickHandler = (id) => {
-      const newSelection = this.state.data.find(entry => entry.id === id)
-      this.setState({ selectedData: newSelection, list: list.filter(video => video.id !== id) })
-  
+
+    componentDidMount() {
+      console.log(`App called componentDidMount()`);
+      const API_KEY = {
+        "api_key": "a3bf9d6c-dda1-426c-91be-d5c011de60f8"
+        }
+      
     }
+  
   
     defaultPrevent = (event) => {
       event.preventDefault()
@@ -39,14 +40,15 @@ class Mainpage extends Component {
       return (
         
         <div className="App">
-          <Video content={this.state.selectedData} />
+          <Video content={this.state.selectedData} {...this.props.routeProps} data={this.state.data}/>
           <div className="halfPage">
             <div className="halfPage-left">
               <VideoInfo content={this.state.selectedData} />
               <Commentform defaultPrevent={this.defaultPrevent} />
               <Comments comments={this.state.selectedData.comments} />
             </div>
-            <Videolist querySelector={this.ellipsisMake} clickHandler={this.clickHandler} selectedId={this.state.selectedId} list={this.state.list} />
+            <Videolist clickHandler={this.clickHandler} selectedId={this.state.selectedId} 
+            list={this.state.list} {...this.props.routeProps}/>
           </div>
         </div>
       );
