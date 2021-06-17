@@ -107,17 +107,25 @@ a {
     &__uploadImg {
       position: relative;
       right: 8px;
-      top: 1px;
+      bottom: 2px;
       @include tablet {
 
       }
     }
 
     &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       min-height: $sixteen*3;
-      background-repeat: no-repeat;
-      background-position: 25% 50%;
+
+      background-color: $brainflix-blue;
+
+      border-radius: 4px;
+      font-size: 13px;
+      border: none;
+  
       @include tablet {
         margin-left: $sixteen;
         width: 60%;
@@ -131,9 +139,16 @@ a {
       margin-left: $sixteen;
       background-image: url("../../assets/Images/Mohan-muruge.jpg");
       background-size: cover;
+      transition: transform, 0.5s;
+      transition-timing-function: ease;
+
       @include tablet {
         margin-left: $sixteen;
 
+      }
+
+      &:hover{
+        transform: scale(1.1);
       }
   }
 }

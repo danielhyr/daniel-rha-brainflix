@@ -1,12 +1,12 @@
 import './Comments.scss'
 
-function Comments(props) {
+function Comments({comments}) {
     let dateGet = (dateVar) => {
         return ('0' + (dateVar.getMonth() + 1)).slice(-2) + '/' + ('0' + dateVar.getDate()).slice(-2) + '/' + dateVar.getFullYear()
     }
     return (
         <>
-            {props.comments.map((comment) => {
+            {comments.map((comment) => {
                 return (<div key={comment.id} className="commentsLoaded" >
                     <div className="commentsLoaded-top">
                         <div className="commentsLoaded-top__circle"></div>

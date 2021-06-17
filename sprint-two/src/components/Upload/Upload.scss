@@ -106,7 +106,13 @@
         height: $sixteen*2.5;
         padding-left: $sixteen;
         @include desktop {
+
         }
+        &:focus {
+            outline: none;
+            border: 2px solid $brainflix-blue;
+           }
+     
     }
 
     &__textArea {
@@ -120,6 +126,11 @@
         @include tablet {
             margin-bottom: 2rem;
         }
+        &:focus {
+            outline: none;
+            border: 2px solid $brainflix-blue;
+           }
+     
     }
 }
 

@@ -2,13 +2,21 @@ import React from 'react'
 import './Upload.scss'
 import thumbnail from '../../assets/Images/Upload-video-preview.jpg'
 
-function Upload() {
+function Upload({ routeProps }) {
+
+    function pushBack(event) {
+        event.preventDefault()
+        alert("Upload complete!")
+        routeProps.history.push('/home')
+    }
+
     return (
+
         <div className="upload">
             <h1 className="upload__header">Upload Video</h1>
             <div className="innerLoad">
 
-                <form className="form">
+                <form className="form" onSubmit={pushBack}>
                     <div className="form-one">
 
                         <div className="form-left">
@@ -26,7 +34,7 @@ function Upload() {
                         </div>
                     </div>
                     <div className="btns">
-                        <button className="btns__publish">PUBLISH</button>
+                        <button className="btns__publish" type="submit">PUBLISH</button>
                         <button className="btns__cancel">CANCEL</button>
                     </div>
 

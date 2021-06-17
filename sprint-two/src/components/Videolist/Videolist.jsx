@@ -1,13 +1,13 @@
 import './Videolist.scss'
 import { Link } from 'react-router-dom'
 
-function Videolist(props) {
-    const selectId = props.match.params.id
+function Videolist({list, match}) {
+    const selectId = match.params.id
 
-    let filterVid = props.list.filter(video => video.id !== selectId)
+    let filterVid = list.filter(video => video.id !== selectId)
 
-    if (props.match.path === "/") {
-        filterVid = props.list.filter(video => video.id !== props.list[0].id)
+    if (match.path === "/home") {
+        filterVid = list.filter(video => video.id !== list[0].id)
     }
     return (
         <div className="videoList">
@@ -15,7 +15,7 @@ function Videolist(props) {
             {filterVid.map((video) => {
 
                 return <div key={video.id} className="videoList-inner">
-                    <Link to={`/${video.id}`} >
+                    <Link to={`/videos/${video.id}`} >
                         <div className="videoList-wrapper" ><img className="videoList__thumbnail" src={video.image} alt="images as thumbnails for the videos"></img></div>
                     </Link>
                     <div className="videoList-inner-block">

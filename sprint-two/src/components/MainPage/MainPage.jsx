@@ -35,7 +35,7 @@ componentDidMount() {
       const currentId = this.props.routeProps.match.params.id
       const currentPath = this.props.routeProps.match.path
 
-      if (currentPath === "/") {
+      if (currentPath === "/home") {
 
         axios.get(`${API_URL.api_url}videos/${response.data[0].id}?api_key=${API_KEY.api_key}`).then(response => {
           this.setState({ selectedData: response.data, })
@@ -57,20 +57,25 @@ componentDidMount() {
 
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-      console.log("componentDidUpdate Console")
-      
+
+  componentDidUpdate(prevProps) {
+    console.log("componentDidUpdate outside")
+
       const prevId = prevProps.routeProps.match.params.id
       const currentId = this.props.routeProps.match.params.id
       const currentPath = this.props.routeProps.match.path
 
-      if (currentPath === "/" && currentId !== prevId) {
+      if (currentPath === "/home" && currentId !== prevId) {
+        console.log("componentDidUpdate first")
+
         axios.get(`${API_URL.api_url}videos/${this.state.data[0].id}?api_key=${API_KEY.api_key}`).then(response => {
-          this.setState({ selectedData: response.data, })
+          this.setState({ selectedData: response.data })
         }).catch(error => { console.log("ERROR! First Axios inside", error) })
       }
       else 
       if (currentId !== prevId) {
+        console.log("componentDidUpdate second")
+
         axios.get(`${API_URL.api_url}videos/${currentId}?api_key=${API_KEY.api_key}`).then(response => {
           this.setState({
             selectedData: response.data,
@@ -88,7 +93,7 @@ componentDidMount() {
 
   render() {
     if (this.state.data === null || this.state.selectedData === null) {
-      return <main>Loading...</main>
+      return <main className="load-screen">Loading...</main>
     }
     return (
 

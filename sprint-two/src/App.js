@@ -10,7 +10,6 @@ import { Component } from 'react'
 class App extends Component {
 
 
-
   defaultPrevent = (event) => {
     event.preventDefault()
   }
@@ -22,9 +21,9 @@ class App extends Component {
       <BrowserRouter>
           <Header defaultPrevent={this.defaultPrevent} />
         <Switch>
-          <Route exact path="/" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
-          <Route exact path="/upload" component = {Upload}/>
-          <Route path="/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
+            <Route exact path="/home" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
+          <Route exact path="/upload" render={(routeProps) => {return <Upload routeProps={routeProps}/>}}/>
+          <Route path="/videos/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
         </Switch>
       </BrowserRouter>
     );
