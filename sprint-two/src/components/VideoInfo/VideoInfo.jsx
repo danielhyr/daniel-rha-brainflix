@@ -17,14 +17,14 @@ function VideoInfo({content}) {
             <div className="info-divider">
                 <div className="info-user">
                     <p className="info-user__data">By {content.channel}</p>
-                    <p className="info-user__dataTwo">{dateGet(new Date(Number(content.timestamp)))}</p></div>
+                    <p className="info-user__data-two">{dateGet(new Date(Number(content.timestamp)))}</p></div>
                 <div className="info-social">
                     <p className="info-social__viewcount">
-                        <img className="info-social__viewIcon" src={Viewicon} alt="The View count icon">
-                        </img>{content.views}</p>
+                        <img className="info-social__view-icon" src={Viewicon} alt="The View count icon"/>
+                        {content.views}</p>
                     <p className="info-social__likecount">
-                        <img className="info-social__likeIcon" src={Likeicon} alt="The Like count icon">
-                        </img>{content.likes}</p>
+                        <img className="info-social__like-icon" src={Likeicon} alt="The Like count icon"/>
+                        {content.likes}</p>
                 </div>
             </div>
             <p className="info__description">{content.description}

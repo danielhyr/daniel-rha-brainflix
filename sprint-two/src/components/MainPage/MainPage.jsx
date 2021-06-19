@@ -33,6 +33,8 @@ class Mainpage extends Component {
     }).catch(err => console.log(err))
   }
 
+  // lifecycle methods
+
   componentDidMount() {
     axios.get(`${API_URL}videos/?api_key=${API_KEY}`).then(response => {
 
@@ -74,11 +76,11 @@ class Mainpage extends Component {
     return (
 
       <div className="App">
-        <Video content={this.state.selectedData}/>
-        <div className="halfPage">
-          <div className="halfPage-left">
+        <Video content={this.state.selectedData.image}/>
+        <div className="half-page">
+          <div className="half-page-left">
             <VideoInfo content={this.state.selectedData}/>
-            <Comments content={this.state.selectedData} {...this.props} array={this.state.data} />
+            <Comments selectedVideo={this.state.selectedData} {...this.props} vidArray={this.state.data} />
           </div>
           <Videolist list={this.state.data} {...this.props} />
         </div>

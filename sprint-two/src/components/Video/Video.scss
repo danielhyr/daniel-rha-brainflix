@@ -3,20 +3,22 @@
 
 .video {
     &-thumbWrapper {
+        width: 100%;
+        height: auto;
         display: flex;
-        height: 250px;
+        max-height: 40vh;
         background-color: black;
         @include tablet {
-            height: 400px;
+            max-height: 60vh;
 
         }
         @include desktop {
-            height: 500px;
+            max-height: 60vh;
 
         }
     }
     &__img {
-        min-width: 100%;
+        width: 100vw;
         height: auto;
         object-fit: cover;
         @include tablet {

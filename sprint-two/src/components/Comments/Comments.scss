@@ -137,7 +137,7 @@
         @include large-paragraphs-comments;
         margin:0 $sixteen*1.5;
         padding-right: $sixteen*3;
-        padding-top: $sixteen*2;
+        padding-top: $sixteen;
         padding-bottom: $sixteen;
 
     }
@@ -184,6 +184,12 @@
         &__stamp {
             color: $silver;
             margin-left: 1rem;
+            position: absolute;
+            right: 0px;
+            display: none;
+            @include tablet {
+                display: block;
+            }
         }
 
         &__circle {
@@ -195,6 +201,17 @@
                 left: -$sixteen*3.5;
                 top: 0;
     }
+    &__circle-mohan {
+        @include avatarMobile;
+        background-color: $mercury;
+        justify-content: space-between;
+        background-image: url("../../assets/Images/Mohan-muruge.jpg");
+        background-position: center;
+        background-size: cover;
+            position: absolute;
+            left: -$sixteen*3.5;
+            top: 0;
+}
 }
     
 

@@ -16,8 +16,8 @@ function Header({ defaultPrevent }) {
                 </div>
                 <div className="header__form-bottom">
                     <Link to="/upload" className="header__button" type="submit" >
-                        <img className="header__uploadImg" src={Upload} alt="brainflix seaerch icon">
-                        </img>UPLOAD
+                        <img className="header__uploadImg" src={Upload} alt="brainflix seaerch icon"/>
+                        UPLOAD
                     </Link>
                     <div className="header__mohan"></div>
                 </div>
