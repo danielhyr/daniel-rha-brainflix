@@ -7,7 +7,7 @@ function Upload({ routeProps }) {
     function pushBack(event) {
         event.preventDefault()
         alert("Upload complete!")
-        routeProps.history.push('/home')
+        routeProps.history.push('/')
     }
 
     return (

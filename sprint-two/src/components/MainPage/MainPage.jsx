@@ -6,16 +6,12 @@ import Videolist from '../Videolist/Videolist'
 import './MainPage.scss'
 
 import axios from 'axios'
-
+import { API_KEY, API_URL } from '../../utils/api'
 import { Component } from 'react'
 
 
-const API_KEY = {
-  "api_key": "a3bf9d6c-dda1-426c-91be-d5c011de60f8"
-}
-const API_URL = {
-  "api_url": "https://project-2-api.herokuapp.com/"
-}
+
+
 
 
 
@@ -28,21 +24,20 @@ class Mainpage extends Component {
     selectedId: null,
   }
 
-componentDidMount() {
+  componentDidMount() {
     console.log(`App called componentDidMount()`);
 
-    axios.get(`${API_URL.api_url}videos/?api_key=${API_KEY.api_key}`).then(response => {
+    axios.get(`${API_URL}videos/?api_key=${API_KEY}`).then(response => {
+
       const currentId = this.props.routeProps.match.params.id
       const currentPath = this.props.routeProps.match.path
 
-      if (currentPath === "/home") {
-
-        axios.get(`${API_URL.api_url}videos/${response.data[0].id}?api_key=${API_KEY.api_key}`).then(response => {
+      if (currentPath === "/") {
+        axios.get(`${API_URL}videos/${response.data[0].id}?api_key=${API_KEY}`).then(response => {
           this.setState({ selectedData: response.data, })
         }).catch(error => { console.log("ERROR! First Axios inside", error) })
-
       } else {
-        axios.get(`${API_URL.api_url}videos/${currentId}?api_key=${API_KEY.api_key}`).then(response => {
+        axios.get(`${API_URL}videos/${currentId}?api_key=${API_KEY}`).then(response => {
           this.setState({ selectedData: response.data, })
         }).catch(error => { console.log("ERROR! Second Axios inside", error) })
       }
@@ -50,46 +45,37 @@ componentDidMount() {
       this.setState({
         data: response.data,
         selectedId: response.data[0].id,
+
       })
     }).catch(error => { console.log("ERROR! Third Axios Inside!", error) })
-    const currentId = this.props.routeProps.match.params.id
-
 
   }
 
 
   componentDidUpdate(prevProps) {
-    console.log("componentDidUpdate outside")
+    const prevId = prevProps.routeProps.match.params.id
+    const currentId = this.props.routeProps.match.params.id
+    const currentPath = this.props.routeProps.match.path
 
-      const prevId = prevProps.routeProps.match.params.id
-      const currentId = this.props.routeProps.match.params.id
-      const currentPath = this.props.routeProps.match.path
+    if (currentPath === "/home" && currentId !== prevId) {
 
-      if (currentPath === "/home" && currentId !== prevId) {
-        console.log("componentDidUpdate first")
-
-        axios.get(`${API_URL.api_url}videos/${this.state.data[0].id}?api_key=${API_KEY.api_key}`).then(response => {
-          this.setState({ selectedData: response.data })
-        }).catch(error => { console.log("ERROR! First Axios inside", error) })
-      }
-      else 
+      axios.get(`${API_URL}videos/${this.state.data[0].id}?api_key=${API_KEY}`).then(response => {
+        this.setState({ selectedData: response.data })
+      }).catch(error => { console.log("ERROR! from First internal Axios!", error) })
+    }
+    else
       if (currentId !== prevId) {
-        console.log("componentDidUpdate second")
 
-        axios.get(`${API_URL.api_url}videos/${currentId}?api_key=${API_KEY.api_key}`).then(response => {
+        axios.get(`${API_URL}videos/${currentId}?api_key=${API_KEY}`).then(response => {
           this.setState({
             selectedData: response.data,
 
           })
-        }).catch(error => { console.log("ERROR! second Axios inside!", error) })
+        }).catch(error => { console.log("ERROR! from Second internal Axios!", error) })
       }
 
   }
 
-
-  defaultPrevent = (event) => {
-    event.preventDefault()
-  }
 
   render() {
     if (this.state.data === null || this.state.selectedData === null) {
@@ -102,8 +88,8 @@ componentDidMount() {
         <div className="halfPage">
           <div className="halfPage-left">
             <VideoInfo content={this.state.selectedData} {...this.props.routeProps} />
-            <Commentform defaultPrevent={this.defaultPrevent} />
-            <Comments comments={this.state.selectedData.comments} />
+            <Commentform content={this.state.selectedData} {...this.props.routeProps} />
+            <Comments comments={this.state.selectedData.comments}  {...this.props.routeProps} />
           </div>
           <Videolist selectedId={this.state.selectedId}
             list={this.state.data} {...this.props.routeProps} />

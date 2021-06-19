@@ -13,8 +13,11 @@ a {
     align-items: center;
     justify-content: center;
     padding: $sixteen;
-
+  
     position: relative;
+    animation: 1s ease-out 0s 1 slideFromTop;
+
+
     @include tablet {
       flex-direction: row;
       justify-content: space-between;
@@ -154,4 +157,11 @@ a {
 }
 
   
-  
+@keyframes slideFromTop{
+  0% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

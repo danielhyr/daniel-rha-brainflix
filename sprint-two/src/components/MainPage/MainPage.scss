@@ -3,11 +3,16 @@
 @use "../../partials/mixins" as *;
 
 
+.App {
+    animation: 0.8s ease-out 0s 1 slideFromBottomApp;
 
+}
 
 .halfPage {
     @include desktop{
     display: flex;
+    overflow: scroll;
+    max-height: 98vh;
 }
     &-left {
         @include desktop{
@@ -24,3 +29,12 @@
     justify-content: center;
     font-weight: 600;
 }
+
+@keyframes slideFromBottomApp{
+    0% {
+      transform: translateY(0.3%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
