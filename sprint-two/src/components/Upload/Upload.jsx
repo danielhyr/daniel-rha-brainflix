@@ -2,12 +2,12 @@ import React from 'react'
 import './Upload.scss'
 import thumbnail from '../../assets/Images/Upload-video-preview.jpg'
 
-function Upload({ routeProps }) {
+function Upload(props) {
 
     function pushBack(event) {
         event.preventDefault()
         alert("Upload complete!")
-        routeProps.history.push('/')
+        props.history.push('/')
     }
 
     return (
@@ -22,7 +22,7 @@ function Upload({ routeProps }) {
                         <div className="form-left">
                             <p className="form-left__description">VIDEO THUMBNAIL</p>
                             <div className="form-left-imgWrapper">
-                                <img className="form-left__img" src={thumbnail}></img>
+                                <img className="form-left__img" src={thumbnail} alt="the thumbnail of a bicycle view"></img>
                             </div>
                         </div>
                         <div className="form-right">

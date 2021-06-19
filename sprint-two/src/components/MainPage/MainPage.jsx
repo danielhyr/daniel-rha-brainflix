@@ -1,6 +1,5 @@
 import Video from '../Video/Video'
 import VideoInfo from '../VideoInfo/VideoInfo'
-import Commentform from '../Commentform/Commentform'
 import Comments from '../Comments/Comments'
 import Videolist from '../Videolist/Videolist'
 import './MainPage.scss'
@@ -8,7 +7,6 @@ import './MainPage.scss'
 import axios from 'axios'
 import { API_KEY, API_URL } from '../../utils/api'
 import { Component } from 'react'
-
 
 
 
@@ -24,26 +22,28 @@ class Mainpage extends Component {
     selectedId: null,
   }
 
+   currentId = this.props.match.params.id
+   currentPath = this.props.match.path
+
+  innerAxiosGet = (id) => {
+    return axios.get(`${API_URL}videos/${id}/?api_key=${API_KEY}`).then(response => {
+      this.setState({
+        selectedData: response.data
+      })
+    }).catch(err => console.log(err))
+  }
+
   componentDidMount() {
     axios.get(`${API_URL}videos/?api_key=${API_KEY}`).then(response => {
 
-      const currentId = this.props.match.params.id
-      const currentPath = this.props.match.path
-
-      if (currentPath === "/") {
-        axios.get(`${API_URL}videos/${response.data[0].id}?api_key=${API_KEY}`).then(response => {
-          this.setState({ selectedData: response.data, })
-        }).catch(error => { console.log("ERROR! First Axios inside", error) })
+      if (this.currentPath === "/") {
+        this.innerAxiosGet(response.data[0].id)
       } else {
-        axios.get(`${API_URL}videos/${currentId}?api_key=${API_KEY}`).then(response => {
-          this.setState({ selectedData: response.data, })
-        }).catch(error => { console.log("ERROR! Second Axios inside", error) })
+        this.innerAxiosGet(this.currentId)
       }
-
       this.setState({
         data: response.data,
         selectedId: response.data[0].id,
-
       })
     }).catch(error => { console.log("ERROR! Third Axios Inside!", error) })
 
@@ -56,21 +56,12 @@ class Mainpage extends Component {
     const currentId = this.props.match.params.id
     const currentPath = this.props.match.path
 
-    if (currentPath === "/home" && currentId !== prevId) {
-
-      axios.get(`${API_URL}videos/${this.state.data[0].id}?api_key=${API_KEY}`).then(response => {
-        this.setState({ selectedData: response.data })
-      }).catch(error => { console.log("ERROR! from First internal Axios!", error) })
+    if (currentPath === "/" && currentId !== prevId) {
+      this.innerAxiosGet(this.state.data[0].id)
     }
     else
       if (currentId !== prevId) {
-
-        axios.get(`${API_URL}videos/${currentId}?api_key=${API_KEY}`).then(response => {
-          this.setState({
-            selectedData: response.data,
-
-          })
-        }).catch(error => { console.log("ERROR! from Second internal Axios!", error) })
+        this.innerAxiosGet(currentId)
       }
 
   }
@@ -83,15 +74,13 @@ class Mainpage extends Component {
     return (
 
       <div className="App">
-        <Video content={this.state.selectedData} {...this.props.routeProps} data={this.state.data} />
+        <Video content={this.state.selectedData}/>
         <div className="halfPage">
           <div className="halfPage-left">
-            <VideoInfo content={this.state.selectedData} {...this.props.routeProps} />
-            <Commentform content={this.state.selectedData} {...this.props.routeProps} />
-            <Comments comments={this.state.selectedData.comments}  {...this.props.routeProps} />
+            <VideoInfo content={this.state.selectedData}/>
+            <Comments content={this.state.selectedData} {...this.props} array={this.state.data} />
           </div>
-          <Videolist selectedId={this.state.selectedId}
-            list={this.state.data} {...this.props} />
+          <Videolist list={this.state.data} {...this.props} />
         </div>
       </div>
     );

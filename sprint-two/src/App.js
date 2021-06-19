@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter, Route, Switch, Redirect, Router } from 'react-router-dom';
+import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from './components/Header/Header'
 import MainPage from './components/MainPage/MainPage'
 import Upload from './components/Upload/Upload';
@@ -19,12 +19,11 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-          <Header defaultPrevent={this.defaultPrevent} />
+        <Header defaultPrevent={this.defaultPrevent} />
         <Switch>
-
-       <Route exact path="/" component={MainPage}/>
-         <Route exact path="/upload" component={Upload}/>
-         <Route path="/videos/:id" component={ MainPage }/>
+          <Route exact path="/" component={MainPage} />
+          <Route exact path="/upload" component={Upload} />
+          <Route path="/videos/:id" component={MainPage} />
         </Switch>
       </BrowserRouter>
     );
@@ -34,14 +33,14 @@ class App extends Component {
 
 
 
-          // <Route exact path="/" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
-          // <Route exact path="/upload" render={(routeProps) => {return <Upload routeProps={routeProps}/>}}/>
-          // <Route path="/videos/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
+// <Route exact path="/" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
+// <Route exact path="/upload" render={(routeProps) => {return <Upload routeProps={routeProps}/>}}/>
+// <Route path="/videos/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
 
 
-          // <Route exact path="/" component={MainPage}/>
-          // <Route exact path="/upload" component={Upload}/>
-          // <Route path="/videos/:id" component={ MainPage }/>
+// <Route exact path="/" component={MainPage}/>
+// <Route exact path="/upload" component={Upload}/>
+// <Route path="/videos/:id" component={ MainPage }/>
 
 export default App;
 

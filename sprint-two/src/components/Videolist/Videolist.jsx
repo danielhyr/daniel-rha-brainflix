@@ -5,14 +5,13 @@ function Videolist(props) {
     const selectId = props.match.params.id
     let filterVid = props.list.filter(video => video.id !== selectId)
 
-    if (props.match.path === "/home") {
+    if (props.match.path === "/") {
         filterVid = props.list.filter(video => video.id !== props.list[0].id)
     }
     return (
         <div className="videoList">
             <h5 className="videoList__header">NEXT VIDEO</h5>
             {filterVid.map((video) => {
-
                 return <div key={video.id} className="videoList-inner">
                     <Link to={`/videos/${video.id}`} >
                         <div className="videoList-wrapper" ><img className="videoList__thumbnail" src={video.image} alt="images as thumbnails for the videos"></img></div>
@@ -25,9 +24,7 @@ function Videolist(props) {
             }
             )}
         </div>
-
     )
-
 }
 
 

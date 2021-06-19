@@ -11,8 +11,7 @@
 .halfPage {
     @include desktop{
     display: flex;
-    overflow: scroll;
-    max-height: 98vh;
+  
 }
     &-left {
         @include desktop{

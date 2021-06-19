@@ -22,7 +22,6 @@ function VideoInfo({content}) {
                     <p className="info-social__viewcount">
                         <img className="info-social__viewIcon" src={Viewicon} alt="The View count icon">
                         </img>{content.views}</p>
-
                     <p className="info-social__likecount">
                         <img className="info-social__likeIcon" src={Likeicon} alt="The Like count icon">
                         </img>{content.likes}</p>
@@ -30,7 +29,6 @@ function VideoInfo({content}) {
             </div>
             <p className="info__description">{content.description}
             </p>
-            <h4 className="info__commentsnum">3 Comments</h4>
         </div>
     )
 }
