@@ -25,12 +25,10 @@ class Mainpage extends Component {
   }
 
   componentDidMount() {
-    console.log(`App called componentDidMount()`);
-
     axios.get(`${API_URL}videos/?api_key=${API_KEY}`).then(response => {
 
-      const currentId = this.props.routeProps.match.params.id
-      const currentPath = this.props.routeProps.match.path
+      const currentId = this.props.match.params.id
+      const currentPath = this.props.match.path
 
       if (currentPath === "/") {
         axios.get(`${API_URL}videos/${response.data[0].id}?api_key=${API_KEY}`).then(response => {
@@ -53,9 +51,10 @@ class Mainpage extends Component {
 
 
   componentDidUpdate(prevProps) {
-    const prevId = prevProps.routeProps.match.params.id
-    const currentId = this.props.routeProps.match.params.id
-    const currentPath = this.props.routeProps.match.path
+
+    const prevId = prevProps.match.params.id
+    const currentId = this.props.match.params.id
+    const currentPath = this.props.match.path
 
     if (currentPath === "/home" && currentId !== prevId) {
 
@@ -92,7 +91,7 @@ class Mainpage extends Component {
             <Comments comments={this.state.selectedData.comments}  {...this.props.routeProps} />
           </div>
           <Videolist selectedId={this.state.selectedId}
-            list={this.state.data} {...this.props.routeProps} />
+            list={this.state.data} {...this.props} />
         </div>
       </div>
     );

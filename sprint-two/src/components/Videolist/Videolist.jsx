@@ -1,13 +1,12 @@
 import './Videolist.scss'
 import { Link } from 'react-router-dom'
 
-function Videolist({list, match}) {
-    const selectId = match.params.id
+function Videolist(props) {
+    const selectId = props.match.params.id
+    let filterVid = props.list.filter(video => video.id !== selectId)
 
-    let filterVid = list.filter(video => video.id !== selectId)
-
-    if (match.path === "/home") {
-        filterVid = list.filter(video => video.id !== list[0].id)
+    if (props.match.path === "/home") {
+        filterVid = props.list.filter(video => video.id !== props.list[0].id)
     }
     return (
         <div className="videoList">

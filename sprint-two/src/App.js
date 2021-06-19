@@ -21,14 +21,27 @@ class App extends Component {
       <BrowserRouter>
           <Header defaultPrevent={this.defaultPrevent} />
         <Switch>
-            <Route exact path="/" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
-          <Route exact path="/upload" render={(routeProps) => {return <Upload routeProps={routeProps}/>}}/>
-          <Route path="/videos/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
+
+       <Route exact path="/" component={MainPage}/>
+         <Route exact path="/upload" component={Upload}/>
+         <Route path="/videos/:id" component={ MainPage }/>
         </Switch>
       </BrowserRouter>
     );
   }
 }
+
+
+
+
+          // <Route exact path="/" render={(routeProps) => {return <MainPage routeProps={routeProps}/>}}/>
+          // <Route exact path="/upload" render={(routeProps) => {return <Upload routeProps={routeProps}/>}}/>
+          // <Route path="/videos/:id" render={(routeProps) => {return <MainPage routeProps={routeProps}/> }} />
+
+
+          // <Route exact path="/" component={MainPage}/>
+          // <Route exact path="/upload" component={Upload}/>
+          // <Route path="/videos/:id" component={ MainPage }/>
 
 export default App;
 
