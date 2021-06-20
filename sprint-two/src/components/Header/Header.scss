@@ -135,6 +135,9 @@ a {
         flex-grow: 2;
 
       }
+      &:hover {
+        background-color: $brainflix-darkblue;
+      }
     }
 
 &__mohan{
