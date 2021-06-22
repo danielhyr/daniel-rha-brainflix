@@ -1,0 +1,113 @@
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+a {
+    display: inline-block;
+}
+.videoList {
+    @include mobile-lists-contacts;
+    display: flex;
+    flex-direction: column;
+    margin-left: $sixteen;
+    margin-right: $sixteen;
+    border-top: 1px solid $mercury;
+
+    padding-top: $sixteen*2;
+    @include tablet {
+        margin-left: $sixteen*1.5;
+        margin-right: $sixteen*1.5;
+
+    }
+    @include desktop {
+        border-left: 1px solid $mercury;
+        margin: 0;
+        padding-left: $sixteen*1.5;
+        padding-right: $sixteen*1.5;
+
+    }
+    &__header {
+        @include mobile-h5-labels;
+        color: $mercury;
+        padding-bottom: $sixteen*2;
+        @include tablet {
+            @include large-h5-labels;
+        }
+    }
+
+    &__thumbnail {
+        min-width: 160px;
+        min-height: 100px;
+        object-fit: cover;
+        position: relative;
+        transition: transform, 1s;
+        &:hover {
+            transform: translateX(30px) scale(1.5) rotate(10deg);
+        }
+        &--large {
+            min-width: 340px;
+            min-height: 220px;
+            right:80px;
+            object-fit: cover;
+            position: relative;
+            bottom: 40px;
+            right: 45px;
+        }
+        &--rotate {
+
+            min-width: 200px;
+            min-height: 180px;
+            object-fit: cover;
+            position: relative;
+            bottom: 40px;
+            right: 25px;
+            transform: rotate(-30deg);
+            }
+        }
+
+    &-wrapper {
+        min-width: 160px;
+        min-height: 100px;
+        width: 140px;
+        height: 90px;
+        display: flex;
+        border-radius: 4px;
+        overflow: hidden;
+
+    }
+
+    &-inner {
+        display: flex;
+        margin-bottom: $sixteen;
+        @include tablet {
+            margin-bottom: $sixteen*1.5;
+        }
+        &-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: $sixteen;
+                @include tablet {
+                   @include large-lists-contacts;
+                   width: 30%;
+                }
+            &__title {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+
+                overflow: hidden;
+                padding-top: 4px;
+
+            }
+            &__channel {
+                padding-bottom: 4px;
+
+            }
+
+     
+        }
+
+    }
+}
+
+
