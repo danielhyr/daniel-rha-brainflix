@@ -14,7 +14,7 @@ function Video({content}) {
         </div>
     )
 
-}
+};
 
 
 export default Video

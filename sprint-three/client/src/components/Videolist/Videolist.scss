@@ -78,6 +78,7 @@ a {
     &-inner {
         display: flex;
         margin-bottom: $sixteen;
+        color: $black;
         @include tablet {
             margin-bottom: $sixteen*1.5;
         }
