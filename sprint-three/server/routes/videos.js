@@ -2,16 +2,8 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs')
-
-
-
-// Require UUID
-
 const uuid = require('uuid')
-
-// Required json data files
 const videoInfo = require('../data/videos.json')
-//Router endpoint declarations
 
 
 const updateData = (object) => {
@@ -64,7 +56,7 @@ router.post('/', (req, res) => {
         "views": "0",
         "likes": "0",
         "duration": "4:50",
-        "video": "https://project-2-api.herokuapp.com/stream",
+        "video": "http://localhost:8080/img-99.mp4",
         "timestamp": Date.now(),
         "comments": []
     }

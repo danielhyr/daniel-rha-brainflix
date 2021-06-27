@@ -13,7 +13,7 @@ const commentRoutes = require('./routes/comments')
 
 
 
-// Midware
+// Middleware
 
 app.use(express.json())
 app.use(cors())
@@ -23,7 +23,6 @@ app.use(cors())
 app.use(express.static('public/images'))
 
 app.use('/api/videos', videoRoutes).use('/api/videos', commentRoutes)
-
 
 app.listen(PORT, () => {
     console.log(`express is running on ${PORT}

@@ -2,14 +2,8 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs')
-
-    // Require UUID
-
-    const uuid = require('uuid')
-
-// Required json data files
+const uuid = require('uuid')
 const videoInfo = require('../data/videos.json')
-
 
 
 const updateData = (object) => {

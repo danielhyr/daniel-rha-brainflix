@@ -1,9 +1,7 @@
 import Viewicon from '../../assets/Icons/Icon-views.svg'
 import Likeicon from '../../assets/Icons/Icon-likes.svg'
-import { API_URL } from '../../utils/api'
 
 import './VideoInfo.scss'
-import axios from 'axios';
 
 function VideoInfo({content, handleOnClick}) {
 

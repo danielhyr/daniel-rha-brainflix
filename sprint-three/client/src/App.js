@@ -1,25 +1,22 @@
 import './App.scss';
 import { BrowserRouter, Route, Switch} from 'react-router-dom';
 import Header from './components/Header/Header'
-import MainPage from './components/Pages/MainPage/MainPage'
-import UploadPage from './components/Pages/UploadPage/UploadPage';
-import { Component } from 'react'
+import MainPage from './Pages/MainPage/MainPage'
+import UploadPage from './Pages/UploadPage/UploadPage';
 
 
 
-class App extends Component {
+function App () {
 
 
-  defaultPrevent = (event) => {
+  const defaultPrevent = (event) => {
     event.preventDefault();
   }
 
 
-  render() {
-
     return (
       <BrowserRouter>
-        <Header defaultPrevent={this.defaultPrevent} />
+        <Header defaultPrevent={defaultPrevent} />
         <Switch>
           <Route exact path="/" component={MainPage} />
           <Route exact path="/upload" component={UploadPage} />
@@ -28,7 +25,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
 
 
 export default App;
