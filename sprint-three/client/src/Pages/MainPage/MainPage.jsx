@@ -53,7 +53,6 @@ class MainPage extends Component {
 
   // Click and Submit handlers which deal with viideo likes and posting/deletisng comments
   handleOnClick = (e) => {
-    console.log(e.target.id);
     axios
       .put(`${API_URL}videos/${e.target.id}/likes`)
       .then((response) => {
@@ -122,7 +121,6 @@ class MainPage extends Component {
       this.axiosGet(this.state.data[0].id);
     } else if (currentId !== prevId) {
       this.axiosGet(currentId);
-      console.log(this.state.selectedData.video);
     }
   }
 

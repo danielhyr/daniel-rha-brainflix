@@ -21,8 +21,8 @@ function VideoInfo({content, handleOnClick}) {
                     <p className="info-social__viewcount">
                         <img className="info-social__view-icon" src={Viewicon} alt="The View count icon"/>
                         {content.views}</p>
-                    <p  className="info-social__likecount" onClick={handleOnClick}>
-                        <img id = {content.id} className="info-social__like-icon" src={Likeicon} alt="The Like count icon"/>
+                    <p  className="info-social__likecount" >
+                        <img id = {content.id}  onClick={handleOnClick} className="info-social__like-icon" src={Likeicon} alt="The Like count icon"/>
                         {content.likes}</p>
                 </div>
             </div>
