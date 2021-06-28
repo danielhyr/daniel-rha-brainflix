@@ -15,6 +15,7 @@ class Comments extends Component {
         return ('0' + (dateVar.getMonth() + 1)).slice(-2) + '/' + ('0' + dateVar.getDate()).slice(-2) + '/' + dateVar.getFullYear();
     };
 
+    // Dynamix timestamp
     getStamp = (timestamp) => {
         const msPerSec = 1000
         const msPerMin = msPerSec * 60
