@@ -1,0 +1,104 @@
+@use "../../partials/variables" as *;
+
+
+
+.main {
+
+    &__logo{
+        width: 12rem;
+        margin-left: 1rem;
+        position: relative;
+        top: 4px;
+        animation: 1s ease-in 0s 1 appearSlowly;
+    }
+    gap: 2rem 0px;
+
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 25% 50% 25%;
+    height: 80vh;
+    &-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    grid-column-start: 2;
+    grid-column-end: 2;
+
+    grid-row-start: 2;
+    grid-row-end: 2;
+    text-align: center;
+
+
+
+
+    &__link{
+        color: white;
+        padding:1rem 1rem;
+        margin-top: 1rem;
+        background-color: $brainflix-blue;
+        border-radius: 4px;
+        &:hover {
+            background-color: $brainflix-darkblue;
+        }
+    }
+
+    &__h1 {
+
+    }
+
+    &__h2 {
+
+        padding: 2rem 0;
+        font-size: 1rem;
+    }
+
+ 
+  
+    }
+
+    &-color-1{
+        background-color: skyblue;
+        animation: 1s ease-out 0s 1 slideFromLeft;
+
+    }
+    &-color-2{
+        background-color: lightgreen;
+        animation: 1s ease-out 0s 1 slideFromRight;
+
+    }
+    &-color-3{
+        background-color: lightgoldenrodyellow;
+        animation: 1s ease-out 0s 1 slideFromLeft;
+
+    }
+    &-color-4{
+        background-color: lightsalmon;
+        animation: 1s ease-out 0s 1 slideFromRight;
+
+    }
+}
+
+@keyframes slideFromLeft{
+    0% {
+      transform: translateX(2%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideFromRight{
+    0% {
+      transform: translateX(-2%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes appearSlowly {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

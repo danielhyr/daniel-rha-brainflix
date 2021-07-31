@@ -1,11 +1,22 @@
 const express = require('express')
 const app = express()   
 const cors = require('cors')
+const mongoose = require('mongoose')
+require('dotenv').config()
+
+
 // Config 
 
-require('dotenv').config()
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 8000
+const CONNECTION_URL = process.env.CONNECTION_URL
 
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connection.once('open', function(){
+    console.log('connection has been made')    
+}).on('err', function(err) {
+    console.log('error', err)
+})
 // Routes files import
 
 const videoRoutes = require('./routes/videos')
